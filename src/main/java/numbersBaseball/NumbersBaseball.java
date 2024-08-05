@@ -31,7 +31,7 @@ public class NumbersBaseball {
             int inputNum = InputView.inputNumber();
             int[] inputList = InputView.splitNumber(inputNum);
 
-            if(InputView.validateNumber(inputList)) continue;
+            if(!InputView.validateNumber(inputList)) continue;
 
             strike = compareTo(inputList);
         }
