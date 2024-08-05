@@ -5,7 +5,6 @@ public class NumbersBaseball {
     public int compareTo(int[] compareNum){
         // 초기화
         int strike = 0, ball = 0;
-        boolean nothing=false;
 
         for (int i = 1; i <= 3; i++) {
             int cur = compareNum[i];
@@ -18,18 +17,12 @@ public class NumbersBaseball {
                 ball++;
             }
         }
-        if(strike == 0 && ball == 0) nothing = true;
-        if(!nothing) {
-            System.out.println(strike + " 스트라이크");
-            System.out.println(ball + " 볼");
-            return strike;
-        }
-        System.out.println("낫싱");
-        return 0;
+        System.out.println(ResultView.scoreResult(strike, ball));
+        return strike;
     }
 
     public void game(int[] randomNum) {
-        int strike = 0;
+        int strike = 0,  ball = 0;
         InputView.makeRandomNumber(randomNum);
 
         while(strike != 3) {
@@ -37,7 +30,7 @@ public class NumbersBaseball {
 
             int inputNum = InputView.inputNumber();
             int[] inputList = InputView.splitNumber(inputNum);
-            if(!InputView.validateNumber(inputList)) continue;
+            if(InputView.validateNumber(inputList))
             strike = compareTo(inputList);
 
 

@@ -1,7 +1,6 @@
 package numbersBaseball;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class InputView {
@@ -41,7 +40,8 @@ public class InputView {
             System.out.println(ValidationError.duplication);
             return verification;
         }
-        for (int num :  numList) {
+        for (int i = 1; i<numList.length; i++) {
+            int num = numList[i];
             if(!((0 < num) && (num < 10))) {
                 System.out.println(ValidationError.intermediateValue);
                 return verification;
