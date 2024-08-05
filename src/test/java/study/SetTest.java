@@ -39,8 +39,9 @@ public class SetTest {
 
     @ParameterizedTest
     @DisplayName("ParameterizedTest - 입력 값에 따라 결과 값이 다른 경우")
-    @CsvSource(value = {"1:true", "2:4", "3:5"}, delimiter = ':')
+    @CsvSource(value = {"1:true", "2:true", "3:true", "4:false", "5:false"}, delimiter = ':')
     void contains2(String input, String output) {
-        assertEquals(input,output);
+        boolean actualNum = numbers.contains(Integer.parseInt(input));
+        assertEquals(Boolean.parseBoolean(output),actualNum);
     }
 }
