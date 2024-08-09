@@ -1,13 +1,15 @@
 package numbersBaseball;
 
+import java.util.ArrayList;
+
 public class NumbersBaseball {
 
-    public int compareTo(int[] compareNum){
+    public static int compareTo(ArrayList<Integer> compareNum){
         // 초기화
         int strike = 0, ball = 0;
 
         for (int i = 1; i <= 3; i++) {
-            int cur = compareNum[i];
+            int cur = compareNum.get(i-1);
 
             if(InputView.check[cur] != 0 && InputView.check[cur] == i) {
                 strike++;
@@ -29,7 +31,7 @@ public class NumbersBaseball {
             System.out.print("숫자를 입력해 주세요 : ");
 
             int inputNum = InputView.inputNumber();
-            int[] inputList = InputView.splitNumber(inputNum);
+            ArrayList<Integer> inputList = InputView.splitNumber(inputNum);
 
             if(!InputView.validateNumber(inputList)) continue;
 

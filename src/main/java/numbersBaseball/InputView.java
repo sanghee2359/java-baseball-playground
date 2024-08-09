@@ -1,5 +1,7 @@
 package numbersBaseball;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class InputView {
@@ -31,18 +33,16 @@ public class InputView {
 
 
     // validation
-    public static boolean validateNumber(int[] numList) {
+    public static boolean validateNumber(ArrayList<Integer> numList) {
         boolean verification = false;
 
-        if(numList[1] == numList[2] || numList[2] == numList[3]
-                || numList[1] == numList[3]) {
-            System.out.println(ValidationError.duplication);
-            return verification;
-        }
-
-        for (int i = 1; i < numList.length; i++) {
-            int num = numList[i];
-            if(!((0 < num) && (num < 10))) {
+        if(!(numList.size()==3)) return verification;
+        for (Integer number: numList) {
+            if(!(Collections.frequency(numList, number) == 1)) {
+                System.out.println(ValidationError.duplication);
+                return verification;
+            }
+            if(!((0 < number) && (number < 10))) {
                 System.out.println(ValidationError.intermediateValue);
                 return verification;
             }
@@ -52,13 +52,13 @@ public class InputView {
     }
 
     // 정수 쪼개기
-    public static int[] splitNumber(int inputNum) {
-        int[] numList = new int[4];
+    public static ArrayList<Integer> splitNumber(int inputNum) {
+//        int[] numList = new int[4];
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(inputNum / 100);
+        arr.add((inputNum % 100) / 10);
+        arr.add((inputNum % 10));
 
-        numList[1] = inputNum / 100;
-        numList[2] = (inputNum % 100) / 10;
-        numList[3] = (inputNum % 10);
-
-        return numList;
+        return arr;
     }
 }
