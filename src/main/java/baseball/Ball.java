@@ -4,22 +4,22 @@ public class Ball {
     // Step 1
 
     private final int position;
-    private final BallNumber ballNum;
+    private final int ballNum;
 
     public Ball(int position, int ballNum) {
         this.position = position;
-        this.ballNum = new BallNumber(ballNum);
+        this.ballNum = ballNum;
     }
 
 
-    public BallStatus play(Ball ball) {
+    public BallStatus playBall(Ball ball) {
         if(this.equals(ball)) return BallStatus.STRIKE;
         if(matchBallNum(ball.ballNum)) return BallStatus.BALL;
         return BallStatus.NOTHING;
     }
 
-    private boolean matchBallNum(BallNumber ballNum) {
-        return this.ballNum.equals(ballNum);
+    private boolean matchBallNum(int ballNum) {
+        return this.ballNum == ballNum;
     }
 
     @Override

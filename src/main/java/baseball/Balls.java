@@ -23,15 +23,15 @@ public class Balls {
         Score result = new Score();
         // 비교 분석
         for(Ball answer : balls){ // computerBall
-            BallStatus status = userBalls.play(answer); // 앞 뒤에 들어갈 객체가 바뀌어도 strike,ball 판별에는 문제가 되지 않음
+            BallStatus status = userBalls.playBalls(answer); // 앞 뒤에 들어갈 객체가 바뀌어도 strike,ball 판별에는 문제가 되지 않음
             result.report(status);
         }
         return result;
     }
 
-    public BallStatus play(Ball userBall) {
+    public BallStatus playBalls(Ball userBall) {
         return balls.stream()
-                .map(answer -> answer.play(userBall))
+                .map(answer -> answer.playBall(userBall))
                 .filter(BallStatus::isNotNothing)
                 .findFirst()
                 .orElse(BallStatus.NOTHING);

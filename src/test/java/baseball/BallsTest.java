@@ -43,21 +43,21 @@ public class BallsTest {
     @DisplayName("userball 1개와 computerball 리스트를 가지고 비교 - strike")
     void strike() {
         Balls computerBall = new Balls(Arrays.asList(1, 2, 3));
-        assertThat(computerBall.play(new Ball(1, 1))).isEqualTo(BallStatus.STRIKE);
+        assertThat(computerBall.playBalls(new Ball(1, 1))).isEqualTo(BallStatus.STRIKE);
 
     }
     @Test
     @DisplayName("userball 1개와 computerball 리스트를 가지고 비교 - ball")
     void ball() {
         Balls computerBall = new Balls(Arrays.asList(1, 2, 3));
-        assertThat(computerBall.play(new Ball(1, 3))).isEqualTo(BallStatus.BALL);
+        assertThat(computerBall.playBalls(new Ball(1, 3))).isEqualTo(BallStatus.BALL);
 
     }
     @Test
     @DisplayName("userball 1개와 computerball 리스트를 가지고 비교 - nothing")
     void nothing() {
         Balls computerBall = new Balls(Arrays.asList(1, 2, 3));
-        assertThat(computerBall.play(new Ball(1, 4))).isEqualTo(BallStatus.NOTHING);
+        assertThat(computerBall.playBalls(new Ball(1, 4))).isEqualTo(BallStatus.NOTHING);
 
     }
 }
