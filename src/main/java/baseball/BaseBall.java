@@ -4,7 +4,10 @@ import ui.InputView;
 import ui.ResultView;
 import utils.MakeRandomNum;
 
+import java.util.List;
 import java.util.Scanner;
+
+import static baseball.BallsNumber.validateNumber;
 
 public class BaseBall {
     public void game(){
@@ -20,7 +23,13 @@ public class BaseBall {
             System.out.print("숫자를 입력해 주세요 : ");
             int userInput = sc.nextInt();
 
-            strike = ResultView.result(answer.play(InputView.splitNumber(userInput)));
+            // 유효성 검사
+            BallsNumber ball = new BallsNumber();
+
+            List<Integer> ballList = ball.splitNumber(userInput);
+            if(!validateNumber(ballList)) continue;
+
+            strike = ResultView.result(answer.play(ballList));
         }
 
     }

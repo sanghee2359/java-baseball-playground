@@ -5,10 +5,29 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
+import static baseball.BallsNumber.validateNumber;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BallsTest {
+
+    @Test
+    @DisplayName("user Ball의 유효성 검사- success")
+    void validate_success() {
+        assertThat(validateNumber(Arrays.asList(1,2,3))).isTrue();
+    }
+    @Test
+    @DisplayName("user Ball의 유효성 검사 - 중복 검사")
+    void validate_fail1() {
+        assertThat(validateNumber(Arrays.asList(1,2,2))).isFalse();
+
+    }@Test
+    @DisplayName("user Ball의 유효성 검사 - 1~9사이 숫자")
+    void validate_fail2() {
+        assertThat(validateNumber(Arrays.asList(1,2,0))).isFalse();
+
+    }
 
     // step 3.
     @Test
