@@ -18,7 +18,6 @@ public class MakeRandomNum {
             int num = random.nextInt(9)+1; // 1 ~ 4 까지의 무작위 int 값 리턴
             idx = checkDuplicate(idx, num);
         }
-        System.out.println(numList.toString());
         return numList;
     }
     public int checkDuplicate(int idx, int num) {
