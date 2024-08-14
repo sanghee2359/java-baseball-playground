@@ -36,7 +36,7 @@ public class BaseBall {
     public BaseBall() {
         while(true){
             game();
-            if(InputView.inputNumber()==2) return;
+            if(InputView.inputNumber()!=1) return;
         }
     }
 
